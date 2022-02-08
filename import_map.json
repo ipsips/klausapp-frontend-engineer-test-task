@@ -1,0 +1,19 @@
+{
+  "imports": {
+    "fs": "https://deno.land/std@0.125.0/fs/mod.ts",
+    "path": "https://deno.land/std@0.125.0/path/mod.ts",
+    "dirname": "https://deno.land/x/dirname@1.1.2/mod.ts",
+    "streams": "https://deno.land/std@0.125.0/streams/mod.ts",
+    "oak": "https://deno.land/x/oak@v10.2.0/mod.ts",
+    "react": "https://jspm.dev/react@17.0.2",
+    "react-dom": "https://jspm.dev/react-dom@17.0.2",
+    "react-dom/": "https://jspm.dev/react-dom@17.0.2/",
+    "react-bootstrap": "https://jspm.dev/react-bootstrap@2.1.2",
+    "serialize-javascript": "https://jspm.dev/serialize-javascript@6.0.0",
+    "react-query": "https://jspm.dev/react-query@3.34.12",
+    "axios": "https://jspm.dev/axios@0.21.4",
+    "react-infinite-scroll-component": "https://jspm.dev/npm:react-infinite-scroll-component@6.1.0",
+    "model/": "./model/",
+    "client/": "./client/"
+  }
+}

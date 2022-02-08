@@ -1,0 +1,118 @@
+$body-bg: #edf2f7;
+
+$table-th-font-weight: 400;
+$table-border-color: transparent;
+$table-border-width: 4px;
+$table-cell-padding-y: 0.8rem;
+
+$badge-font-size: 0.86em;
+$badge-font-weight: 500;
+$badge-padding-y: 0.5em;
+$badge-padding-x: 0.75em;
+
+@import "~bootstrap/scss/bootstrap";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  &.overlay-spinner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba($white, 0.8);
+  }
+}
+
+.avatar {
+  width: 2em;
+  height: 2em;
+
+  &.avatar-s {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  &.avatar-broken {
+    border-radius: 100%;
+    background-color: $gray-300;
+  }
+}
+
+@mixin role-badge($color) {
+  color: shade-color($color, 40%);
+  background-color: tint-color($color, 75%) !important;
+}
+
+.badge {
+  &.bg-admin {
+    @include role-badge($purple);
+  }
+  &.bg-agent {
+    @include role-badge($blue);
+  }
+  &.bg-account_manager {
+    @include role-badge($pink);
+  }
+  &.bg-external_reviewer {
+    @include role-badge($yellow);
+  }
+}
+
+$table-selected-row-cap-size: 0.25rem;
+
+.table {
+  > :not(:first-child) {
+    border-top: 0;
+  }
+
+  > thead,
+  > tbody {
+    > tr {
+      .user-actions {
+        visibility: hidden;
+      }
+
+      &:hover {
+        .user-actions {
+          visibility: visible;
+        }
+      }
+
+      > *:first-child {
+        position: relative;
+        padding-left: $table-cell-padding-x + $table-selected-row-cap-size;
+      }
+
+      &.selected {
+        > * {
+          --#{$variable-prefix}table-accent-bg: var(
+            --#{$variable-prefix}table-hover-bg
+          );
+          color: var(--#{$variable-prefix}table-hover-color);
+        }
+
+        > *:first-child :before {
+          content: " ";
+          position: absolute;
+          left: 0;
+          top: 0;
+          background-color: $blue;
+          width: $table-selected-row-cap-size;
+          height: 100%;
+          border-radius: $border-radius 0 0 $border-radius;
+        }
+
+        > *:last-child {
+          border-radius: 0 $border-radius $border-radius 0;
+        }
+      }
+    }
+  }
+}
