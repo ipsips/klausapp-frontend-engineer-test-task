@@ -13,23 +13,6 @@ $badge-padding-x: 0.75em;
 @import "~bootstrap/scss/bootstrap";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
-.spinner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-
-  &.overlay-spinner {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    background-color: rgba($white, 0.8);
-  }
-}
-
 .avatar {
   width: 2em;
   height: 2em;
