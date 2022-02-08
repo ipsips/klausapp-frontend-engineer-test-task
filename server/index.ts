@@ -1,4 +1,4 @@
-import { Application, isHttpError, Router, Status } from "oak";
+import { Application, isHttpError, Router, Status } from "https://deno.land/x/oak@v10.2.0/mod.ts";
 import { apiRouter } from "./api/apiRouter.ts";
 import { clientRouter } from "./clientRouter.ts";
 

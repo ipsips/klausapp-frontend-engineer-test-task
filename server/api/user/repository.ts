@@ -1,5 +1,5 @@
-import { isNewUser, NewUser, User } from "model/User.ts";
-import dirname from "dirname";
+import { isNewUser, NewUser, User } from "../../../model/User.ts";
+import dirname from "https://deno.land/x/dirname@1.1.2/mod.ts";
 
 const { __dirname } = dirname(import.meta);
 

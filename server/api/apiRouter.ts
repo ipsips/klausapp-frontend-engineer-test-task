@@ -1,5 +1,5 @@
-import { Router, Status } from "oak";
-import { isNewUser, isUserUpdateObject } from "model/User.ts";
+import { Router, Status } from "https://deno.land/x/oak@v10.2.0/mod.ts";
+import { isNewUser, isUserUpdateObject } from "../../model/User.ts";
 import {
   deleteUser,
   populateStorage,
