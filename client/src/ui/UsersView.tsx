@@ -37,6 +37,7 @@ export const UsersView: React.FC<UsersViewProps> = (props) => {
     queryKey: "readUsersQueryKey",
     queryFn: () => readUsers(),
     initialData: props.users,
+    refetchOnWindowFocus: false,
   });
   const users = readUsersQuery.data!.slice();
 
@@ -97,7 +98,7 @@ export const UsersView: React.FC<UsersViewProps> = (props) => {
               <UsersTable
                 users={usersToDisplay}
                 onClickEditUser={handleClickEditUser}
-                isLoading={readUsersQuery.isLoading}
+                isLoading={readUsersQuery.isLoading || readUsersQuery.isRefetching}
                 sortOrder={sortOrder}
                 onClickSortableHeader={handleClickSortableHeader}
               />

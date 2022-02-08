@@ -66,38 +66,40 @@ export const UsersTable: React.FC<UsersTableProps> = (props) => {
         )}
         {isLoading && <Spinner animation="border" size="sm" role="status" />}
       </Stack>
-      <Table responsive className="mt-2 mb-0">
-        <thead>
-          <tr>
-            <th scope="col" className="text-secondary">
-              <FormCheck
-                checked={selectedUserIds.length === users.length}
-                onChange={handleToggleAllUsers}
+      {!!users.length && (
+        <Table responsive className="mt-2 mb-0">
+          <thead>
+            <tr>
+              <th scope="col" className="text-secondary">
+                <FormCheck
+                  checked={selectedUserIds.length === users.length}
+                  onChange={handleToggleAllUsers}
+                />
+              </th>
+              <th scope="col" className="text-secondary w-100">
+                {renderSortableColumnHeader("name", "User")}
+              </th>
+              <th scope="col" className="text-secondary">
+                {renderSortableColumnHeader("role", "Permission")}
+              </th>
+              <th scope="col" className="text-secondary" />
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <UserRow
+                key={user.id}
+                user={user}
+                isSelected={selectedUserIds.includes(user.id)}
+                onToggle={(isSelected: boolean) =>
+                  handleToggleUser(user.id, isSelected)
+                }
+                onClickEdit={() => onClickEditUser(user.id)}
               />
-            </th>
-            <th scope="col" className="text-secondary w-100">
-              {renderSortableColumnHeader("name", "User")}
-            </th>
-            <th scope="col" className="text-secondary">
-              {renderSortableColumnHeader("role", "Permission")}
-            </th>
-            <th scope="col" className="text-secondary" />
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <UserRow
-              key={user.id}
-              user={user}
-              isSelected={selectedUserIds.includes(user.id)}
-              onToggle={(isSelected: boolean) =>
-                handleToggleUser(user.id, isSelected)
-              }
-              onClickEdit={() => onClickEditUser(user.id)}
-            />
-          ))}
-        </tbody>
-      </Table>
+            ))}
+          </tbody>
+        </Table>
+      )}
     </>
   );
 };

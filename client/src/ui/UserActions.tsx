@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Button, Modal, Spinner, Stack } from "react-bootstrap";
+import { Button, Modal, Stack } from "react-bootstrap";
 // @ts-ignore
 import { deleteUser } from "../apiSdk.ts";
 // @ts-ignore
 import { User } from "model/User.ts";
 // @ts-ignore
 import { useUserContext } from "./UserContext.ts";
+import { SubmitButton } from "./SubmitButton.tsx";
 
 export interface UserActionsProps {
   users: User[];
@@ -46,22 +47,13 @@ export const UserActions: React.FC<UserActionsProps> = (props) => {
             <Button variant="secondary" onClick={cancelDeletion}>
               Cancel
             </Button>
-            <Button
-              variant="primary"
+            <SubmitButton
               onClick={confirmDeletion}
               disabled={isDeleting}
+              isLoading={isDeleting}
             >
-              {isDeleting && (
-                <Spinner
-                  as="span"
-                  animation="border"
-                  size="sm"
-                  role="status"
-                  aria-hidden="true"
-                />
-              )}
               Delete
-            </Button>
+            </SubmitButton>
           </Modal.Footer>
         </Modal>
       )}

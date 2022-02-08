@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Button, Modal, Spinner } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 // @ts-ignore
 import { isNewUser, NewUser, User } from "model/User.ts";
 // @ts-ignore
 import { EditUserForm } from "./EditUserForm.tsx";
 // @ts-ignore
 import { createUser, updateUser } from "../apiSdk.ts";
+import { SubmitButton } from "./SubmitButton.tsx";
 
 export interface EditUserModalProps {
   users: User[] | NewUser[];
@@ -81,22 +82,13 @@ export const EditUserModal: React.FC<EditUserModalProps> = (props) => {
         <Button variant="secondary" onClick={() => closeModal()}>
           Cancel
         </Button>
-        <Button
-          variant="primary"
+        <SubmitButton
           onClick={handleSave}
           disabled={!changedUsers || isLoading}
+          isLoading={isLoading}
         >
-          {isLoading && (
-            <Spinner
-              as="span"
-              animation="border"
-              size="sm"
-              role="status"
-              aria-hidden="true"
-            />
-          )}
           Save
-        </Button>
+        </SubmitButton>
       </Modal.Footer>
     </Modal>
   );
