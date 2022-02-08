@@ -10,11 +10,8 @@ import { User } from "../model/User.ts";
 const { __dirname } = dirname(import.meta);
 
 export const clientRouter = new Router()
-  .get("/", (context) => {
-    let users: User[] = [];
-    try {
-      users = readUsers();
-    } catch (error) {}
+  .get("/", async (context) => {
+    const users: User[] = [] // await readUsers();
     context.response.body = renderToString(users);
   })
   .get("/static/(.+)", async (context) => {

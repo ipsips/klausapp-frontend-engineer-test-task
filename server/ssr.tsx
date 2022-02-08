@@ -4,7 +4,7 @@ import serialize from "https://jspm.dev/serialize-javascript@6.0.0";
 import { User } from "../model/User.ts";
 // import { App } from "client/src/ui/App.tsx";
 
-export const renderToString = (users: User[]) => {
+export const renderToString = (users: User[] = []) => {
   /**
    * Must disable SSR because Deno Deploy does not support
    * import path aliases (contained in import_map.json) :(
