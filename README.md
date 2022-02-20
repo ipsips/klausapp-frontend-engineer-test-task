@@ -39,3 +39,5 @@ FIREBASE_PASSWORD="..."
 env $(cat .env | xargs) deno run --allow-net --allow-read --allow-env --no-check app.ts
 ```
 Read more about [Deno CLI documentation](https://deno.land/manual@v1.11.3/getting_started/command_line_interface#command-line-interface).
+
+> **Once client is bundled and server is up, open a browser window and point it to [http://localhost:8000/](http://localhost:8000/)**
