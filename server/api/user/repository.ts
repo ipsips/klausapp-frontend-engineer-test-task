@@ -6,6 +6,7 @@ import {
   doc,
   getDocs,
   setDoc,
+  updateDoc,
 } from "../firebase.ts";
 
 export const readUsers = async (): Promise<User[]> => {
@@ -23,7 +24,7 @@ export const updateUser = async (
   id: number,
   userUpdateObject: Partial<NewUser>
 ): Promise<void> => {
-  await setDoc(doc(db, "users", id.toString()), userUpdateObject);
+  await updateDoc(doc(db, "users", id.toString()), userUpdateObject);
 };
 
 export const deleteUser = async (id: number): Promise<void> => {
